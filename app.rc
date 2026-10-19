@@ -1,0 +1,4 @@
+// MaxPad 应用图标
+#include <windows.h>
+
+1 ICON "app.ico"

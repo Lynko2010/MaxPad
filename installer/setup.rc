@@ -1,0 +1,35 @@
+#pragma code_page(65001)
+#include <windows.h>
+
+1 ICON "..\\app.ico"
+2 RCDATA "..\\MaxPad.exe"
+1 24 "setup.manifest"
+
+#define IDC_PATH      1001
+#define IDC_BROWSE    1002
+#define IDC_DESKTOP   1003
+#define IDC_STARTMENU 1004
+#define IDC_APPICON   1005
+
+100 DIALOGEX 0, 0, 330, 200
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "安装 MaxPad"
+FONT 9, "Microsoft YaHei UI", 400, 0, 0x1
+BEGIN
+    ICON            1, IDC_APPICON, 14, 9, 20, 20
+    LTEXT           "MaxPad 2.1.0", -1, 42, 10, 200, 11
+    LTEXT           "Windows 上的 macOS 风格启动台", -1, 42, 24, 240, 11
+
+    LTEXT           "安装位置：", -1, 14, 46, 80, 11
+    EDITTEXT        IDC_PATH, 14, 59, 246, 14, ES_AUTOHSCROLL
+    PUSHBUTTON      "浏览...", IDC_BROWSE, 266, 59, 50, 15
+
+    GROUPBOX        "快捷方式", -1, 14, 84, 302, 50
+    CHECKBOX        "创建桌面快捷方式", IDC_DESKTOP, 26, 100, 150, 12
+    CHECKBOX        "创建开始菜单快捷方式", IDC_STARTMENU, 26, 116, 170, 12
+
+    LTEXT           "安装到当前用户目录，不需要管理员权限。卸载信息会写入「应用和功能」。", -1, 14, 144, 302, 22
+
+    DEFPUSHBUTTON   "安装", IDOK, 198, 175, 56, 17
+    PUSHBUTTON      "取消", IDCANCEL, 260, 175, 56, 17
+END
